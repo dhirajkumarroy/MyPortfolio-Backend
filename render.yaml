@@ -2,7 +2,7 @@
 services:
   - type: web
     name: dhiraj-my-portfolio-api
-    runtime: java # This is the correct field for specifying the language
+    runtime: java
     plan: free
     buildCommand: "mvn clean install"
     startCommand: "java -jar target/My-Portfolio-0.0.1-SNAPSHOT.jar"
@@ -16,5 +16,5 @@ services:
       - key: DB_PASSWORD
         value: "JpBZr9V6Xxyg7a3LCMxydbqgNaSNqoyE"
       - key: JWT_SECRET
-        value: "M2Q2MjJjODAwOWY1MDhmNmUwNDhiMzY3YzI5NTYxNjA2MWViYjUyNTViOTgyZTcyMjYw"
+        value: "M2Q2MjJjODAwOWY1MDhmNmUwNDhiMzY3YzI5NTYxNjA2MWViYjUyNTV1OTgyZTcyMjYw"
     autoDeploy: true
