@@ -10,11 +10,11 @@ services:
       - key: SPRING_PROFILES_ACTIVE
         value: prod
       - key: DATABASE_URL
-        value: "jdbc:postgresql://your-host.render.com:5432/your-db"
+        value: "jdbc:postgresql://dpg-d2md3nbuibrs73eu34l0-a.oregon-postgres.render.com:5432/portfolio_db_543c"
       - key: DB_USER
-        value: "your_database_username"
+        value: "portfolio_db_543c_user"
       - key: DB_PASSWORD
-        value: "your_database_password"
+        value: "JpBZr9V6Xxyg7a3LCMxydbqgNaSNqoyE"
       - key: JWT_SECRET
-        value: "a-very-long-and-random-string"
+        value: "M2Q2MjJjODAwOWY1MDhmNmUwNDhiMzY3YzI5NTYxNjA2MWViYjUyNTViOTgyZTcyMjYw"
     autoDeploy: true
