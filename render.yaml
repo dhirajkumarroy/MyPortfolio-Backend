@@ -1,10 +1,11 @@
+# File: render.yaml
 services:
   - type: web
     name: dhiraj-my-portfolio-api
-    runtime: buildpack   # ✅ Correct runtime for Spring Boot
+    runtime: docker    # ✅ The correct runtime for your Dockerfile
     plan: free
-    buildCommand: "./mvnw clean install -DskipTests"   # ✅ Use Maven Wrapper
-    startCommand: "java -jar target/My-Portfolio-0.0.1-SNAPSHOT.jar"
+    dockerfilePath: ./Dockerfile # ✅ Points to the Dockerfile in your repo root
+    # Build and Start commands are no longer needed, as they are defined in the Dockerfile
     envVars:
       - key: SPRING_PROFILES_ACTIVE
         value: prod
