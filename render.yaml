@@ -1,10 +1,9 @@
-# File: render.yaml
 services:
   - type: web
     name: dhiraj-my-portfolio-api
-    runtime: java
+    runtime: buildpack   # ✅ Correct runtime for Spring Boot
     plan: free
-    buildCommand: "mvn clean install"
+    buildCommand: "./mvnw clean install -DskipTests"   # ✅ Use Maven Wrapper
     startCommand: "java -jar target/My-Portfolio-0.0.1-SNAPSHOT.jar"
     envVars:
       - key: SPRING_PROFILES_ACTIVE
