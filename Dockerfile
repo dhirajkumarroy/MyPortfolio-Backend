@@ -1,28 +1,28 @@
-# Stage 1: Build the application using Maven
-# Use a base image that includes Maven and JDK
-FROM maven:3.8.5-openjdk-21 AS build
+# ---- Stage 1: Build the application ----
+FROM maven:3.9.9-eclipse-temurin-21 AS build
 
-# Set the working directory
+# Set working directory
 WORKDIR /app
 
-# Copy the pom.xml and source code
-COPY . .
+# Copy pom.xml and download dependencies (layer caching)
+COPY pom.xml .
+RUN mvn dependency:go-offline
 
-# Run the Maven build to create the executable JAR
-RUN mvn clean install -DskipTests
+# Copy source code and build
+COPY src ./src
+RUN mvn clean package -DskipTests
 
-# Stage 2: Create the final, smaller image
-# Use a lightweight JRE image for the final application
+# ---- Stage 2: Run the application ----
 FROM eclipse-temurin:21-jre-jammy
 
-# Set the working directory
+# Set working directory
 WORKDIR /app
 
-# Copy the built JAR from the 'build' stage to the final image
+# Copy built jar from previous stage
 COPY --from=build /app/target/My-Portfolio-0.0.1-SNAPSHOT.jar app.jar
 
-# Expose the port
+# Expose port 8080
 EXPOSE 8080
 
-# Run the application
+# Run the app
 ENTRYPOINT ["java", "-jar", "app.jar"]
