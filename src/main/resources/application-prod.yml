@@ -1,0 +1,4 @@
+cors:
+  allowed-origins: "https://myportfolio-userpage.onrender.com,https://myportfolio-adminpage.onrender.com"
+  allowed-methods: "GET,POST,PUT,DELETE,OPTIONS"
+  allowed-headers: "*"
