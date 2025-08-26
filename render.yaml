@@ -1,19 +1,17 @@
-# File: render.yaml
 services:
   - type: web
     name: dhiraj-my-portfolio-api
-    runtime: docker    # ✅ The correct runtime for your Dockerfile
+    runtime: docker              # ✅ Correct since you’re using a Dockerfile
     plan: free
-    dockerfilePath: ./Dockerfile # ✅ Points to the Dockerfile in your repo root
-    # Build and Start commands are no longer needed, as they are defined in the Dockerfile
+    dockerfilePath: ./Dockerfile # ✅ Points to Dockerfile in repo root
     envVars:
       - key: SPRING_PROFILES_ACTIVE
         value: prod
-      - key: DATABASE_URL
+      - key: SPRING_DATASOURCE_URL
         value: "jdbc:postgresql://dpg-d2md3nbuibrs73eu34l0-a.oregon-postgres.render.com:5432/portfolio_db_543c"
-      - key: DB_USER
+      - key: SPRING_DATASOURCE_USERNAME
         value: "portfolio_db_543c_user"
-      - key: DB_PASSWORD
+      - key: SPRING_DATASOURCE_PASSWORD
         value: "JpBZr9V6Xxyg7a3LCMxydbqgNaSNqoyE"
       - key: JWT_SECRET
         value: "M2Q2MjJjODAwOWY1MDhmNmUwNDhiMzY3YzI5NTYxNjA2MWViYjUyNTV1OTgyZTcyMjYw"
